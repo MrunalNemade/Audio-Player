@@ -15,7 +15,12 @@
     
     BOOL isPlaying;
     
+    NSTimer *timer;
 }
+@property (strong, nonatomic) IBOutlet UIImageView *imageviewArtWork;
+
+@property (strong, nonatomic) IBOutlet UISlider *sliderDuration;
+
 @property (strong, nonatomic) IBOutlet UIButton *buttonPlay;
 
 - (IBAction)actionPlay:(id)sender;

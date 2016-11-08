@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,49 +19,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6N-QP-RUF">
-                                <rect key="frame" x="20" y="550" width="560" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="z6N-QP-RUF">
+                                <rect key="frame" x="240" y="469" width="127" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dib-OZ-fxn">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
-                                        <state key="normal" title="Play"/>
+                                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dib-OZ-fxn">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Dib-OZ-fxn" secondAttribute="height" multiplier="1:1" id="X65-kl-0hL"/>
+                                            <constraint firstAttribute="height" constant="60" id="b6q-kH-JwW"/>
+                                        </constraints>
+                                        <state key="normal" title="Play" image="play"/>
                                         <connections>
                                             <action selector="actionPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uyV-Wq-lXz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNq-VC-YFX">
-                                        <rect key="frame" x="280" y="0.0" width="280" height="30"/>
-                                        <state key="normal" title="Stop"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNq-VC-YFX">
+                                        <rect key="frame" x="67" y="0.0" width="60" height="60"/>
+                                        <state key="normal" title="Stop" image="stop"/>
                                         <connections>
                                             <action selector="actionStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zkx-MY-V0Z"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jNq-VC-YFX" firstAttribute="height" secondItem="Dib-OZ-fxn" secondAttribute="height" id="m3S-7V-3Xk"/>
-                                    <constraint firstItem="jNq-VC-YFX" firstAttribute="width" secondItem="Dib-OZ-fxn" secondAttribute="width" id="yYB-VP-Uk1"/>
+                                    <constraint firstItem="jNq-VC-YFX" firstAttribute="height" secondItem="Dib-OZ-fxn" secondAttribute="height" id="IDS-L2-DGT"/>
+                                    <constraint firstItem="jNq-VC-YFX" firstAttribute="width" secondItem="Dib-OZ-fxn" secondAttribute="width" id="dXH-dN-HrA"/>
                                 </constraints>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7xJ-1R-tud">
+                                <rect key="frame" x="58" y="409" width="484" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Bge-0p-rVh"/>
+                                    <constraint firstAttribute="height" constant="30" id="tws-cf-FYc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bge-0p-rVh"/>
+                                    </mask>
+                                </variation>
+                            </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yGD-HN-PTw">
+                                <rect key="frame" x="135" y="39" width="330" height="330"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yGD-HN-PTw" secondAttribute="height" multiplier="1:1" id="11l-IZ-kXN"/>
+                                    <constraint firstAttribute="width" constant="330" id="Hgz-tp-mFq"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="z6N-QP-RUF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PDd-b5-xqK"/>
+                            <constraint firstItem="z6N-QP-RUF" firstAttribute="top" secondItem="7xJ-1R-tud" secondAttribute="bottom" constant="30" id="3Tv-KQ-wf0"/>
+                            <constraint firstItem="7xJ-1R-tud" firstAttribute="top" secondItem="yGD-HN-PTw" secondAttribute="bottom" constant="40" id="8av-0q-Hzk"/>
+                            <constraint firstItem="yGD-HN-PTw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="183" id="FxS-7e-k8Z"/>
                             <constraint firstItem="z6N-QP-RUF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rc5-VK-Bk8"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="z6N-QP-RUF" secondAttribute="bottom" constant="20" id="k8n-ob-acI"/>
-                            <constraint firstItem="z6N-QP-RUF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="roe-Pw-Qq4"/>
+                            <constraint firstItem="yGD-HN-PTw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ToD-lj-lky"/>
+                            <constraint firstItem="yGD-HN-PTw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="V9g-vu-G8V"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="z6N-QP-RUF" secondAttribute="bottom" constant="71" id="YTN-Td-YEQ"/>
+                            <constraint firstItem="7xJ-1R-tud" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mUK-NV-r4f"/>
+                            <constraint firstItem="7xJ-1R-tud" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="nNK-Gy-kSL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7xJ-1R-tud" secondAttribute="trailing" id="tVC-hO-rFj"/>
+                            <constraint firstItem="7xJ-1R-tud" firstAttribute="width" secondItem="yGD-HN-PTw" secondAttribute="width" id="xFh-2y-4T5"/>
+                            <constraint firstItem="z6N-QP-RUF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xpK-Zc-yTv"/>
+                            <constraint firstItem="yGD-HN-PTw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zqd-Xs-dYM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="FxS-7e-k8Z"/>
+                                <exclude reference="ToD-lj-lky"/>
+                                <exclude reference="V9g-vu-G8V"/>
+                                <exclude reference="tVC-hO-rFj"/>
+                                <exclude reference="xFh-2y-4T5"/>
                                 <exclude reference="Rc5-VK-Bk8"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="buttonPlay" destination="Dib-OZ-fxn" id="qp1-bp-mct"/>
+                        <outlet property="imageviewArtWork" destination="yGD-HN-PTw" id="Zof-lh-vRt"/>
+                        <outlet property="sliderDuration" destination="7xJ-1R-tud" id="hUP-b3-loK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="play" width="64" height="64"/>
+        <image name="stop" width="64" height="64"/>
+    </resources>
 </document>
